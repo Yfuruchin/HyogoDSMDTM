@@ -54,7 +54,7 @@ Q3D.Config = {
   },
   label: {
     visible: true,
-    connectorColor: 0xc0c0d0,
+    connectorColor: 0x28282B,
     fixedSize: false,
     minFontSize: 8,
     queryable: true
@@ -446,6 +446,7 @@ limitations:
 
     // camera
     app.buildCamera(Q3D.Config.orthoCamera);
+
 
     // scene
     app.scene = new Q3D.Scene();
