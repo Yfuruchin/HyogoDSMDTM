@@ -54,9 +54,9 @@ Q3D.Config = {
   },
   label: {
     visible: true,
-    connectorColor: 0xc0c0d0,
+    connectorColor: 0x28282B,
     fixedSize: false,
-    minFontSize: 8,
+    minFontSize: 14,
     queryable: true
   },
   // decoration
@@ -457,6 +457,7 @@ limitations:
     if (typeof THREE.OrbitControls !== "undefined") {
       controls = new THREE.OrbitControls(app.camera, app.renderer.domElement);
       controls.enableKeys = false;
+
       controls.target.copy(Q3D.Config.viewpoint.lookAt);
 
       // custom actions
@@ -785,7 +786,7 @@ limitations:
 
     mouseup: function (e) {
       app.mouseUpPoint.set(e.clientX, e.clientY);
-      if (app.mouseDownPoint.equals(app.mouseUpPoint)) app.canvasClicked(e);
+      //if (app.mouseDownPoint.equals(app.mouseUpPoint)) app.canvasClicked(e);
     },
 
     resize: function () {
@@ -2444,12 +2445,14 @@ Q3D.VectorLayer.prototype.buildLabels = function (features, getPointsFunc) {
 
       if (Q3D.Config.label.queryable) {
         var obj = this.objectGroup.children[f.objIndices[0]];
+        /*
         e.onclick = function () {
           app.scene.remove(app.queryMarker);
           app.highlightFeature(obj);
           app.render();
           app.showQueryResult({x: pt[0], y: pt[1], z: pt[2]}, obj, true);
         };
+        */
         e.classList.add("queryable");
       }
       else {

@@ -15,6 +15,25 @@
   <div id="northarrow"></div>
 </div>
 
+<!-- legend -->
+<div id="legend">
+    <p><b>林道被害</b></p>
+    <ul>
+        <li class="one">被害なし</li>
+        <li class="two">崩壊</li>
+        <li class="three">道路脇斜面が崩壊</li>
+        <li class="four">土砂が堆積</li>
+    </ul>
+</div>
+
+<!-- logo -->
+<div id="logo">
+    <a href="https://www.rakuno.ac.jp/" target="_blank"><img src = "images/logo2.png" width="80px"/></a>
+    <a href="https://mierune.co.jp/" target="_blank"><img src = "images/logo1.png" width="80px"/></a>
+</div>
+
+<div id="footer-right"><p>※高さを2倍で強調表示しています</p></div>
+
 <!-- popup -->
 <div id="popup">
   <div id="closebtn">&times;</div>
@@ -86,11 +105,15 @@
 
 <!-- header and footer -->
 <div id="header"></div>
-<div id="footer"><span id="infobtn"><img src="./Qgis2threejs.png"></span> </div>
+<div id="footer">出典: <br/>
+    <a href="https://www.rakuno.ac.jp/">酪農学園大学</a><br/>
+    <a href="https://www.harp.lg.jp/opendata/dataset/1401.html">北海道 オープンデータポータル/航空レーザー測量データ（平成30年度　厚真地区）</a><br/>
+    <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院/平成30年北海道胆振東部地震 安平地区 正射画像（2018年9月11日撮影）</a>
+</div>
 
 <script>
 Q3D.Config.allVisible = true;
-Q3D.Config.bgColor = 0x090000;
+Q3D.Config.bgColor = 0x999999;
 Q3D.Config.northArrow.visible = true;
 Q3D.Config.northArrow.color = 0x666666;
 if (typeof proj4 === "undefined") document.getElementById("lib_proj4js").style.display = "none";
@@ -108,7 +131,7 @@ app.loadSceneFile("./data/index/scene.json", function () {
   if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
 });
 
-document.getElementById("infobtn").onclick = app.showInfo.bind(app);
+//document.getElementById("infobtn").onclick = app.showInfo.bind(app);
 </script>
 </body>
 </html>
